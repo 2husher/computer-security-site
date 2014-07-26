@@ -1,0 +1,13 @@
+= form_for @category do |f|
+  - if @category.errors.any?
+    %h2 
+      = pluralize @category.errors.count, "error"
+      prohibited this product from being saved:
+  
+    %ul
+      - @category.errors.full_messages.each do |msg|
+        %li 
+          = msg
+  = f.label :name
+  = f.text_field :name
+  = f.submit
