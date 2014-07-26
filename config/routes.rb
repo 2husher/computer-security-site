@@ -1,10 +1,19 @@
 Compsec::Application.routes.draw do
 
+  root to: 'landpage#home'
+  
   get 'landpage/home' => 'landpage#home'
+  get 'categories/index' => 'landpage#home'
 
   resources :categories do
     resources :articles
   end
+
+  resources :articles do
+    resources :comments
+  end
+
+  resources :comments
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

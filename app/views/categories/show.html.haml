@@ -11,7 +11,7 @@
       %td
         = truncate(a.content, length:200)
       %td
-        = link_to 'Show', category_article_path(@category.id, a.id)
+        = link_to 'Show', article_path(a.id)
 
 %p
   = link_to 'New article', new_category_article_path(@category.id)
