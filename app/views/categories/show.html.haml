@@ -1,5 +1,21 @@
 %p
   = @category.name
 
+
+%table
+  - @category.articles.each do |a|
+    %tr
+      %td
+        %strong
+          = a.title
+      %td
+        = truncate(a.content, length:200)
+      %td
+        = link_to 'Show', category_article_path(@category.id, a.id)
+
+%p
+  = link_to 'New article', new_category_article_path(@category.id)
+  = link_to 'All categories', categories_path
+
 = link_to 'Edit', edit_category_path(@category.id)
-= link_to 'Index', categories_path
+= link_to 'Delete', category_path(@category.id), method: :delete, data: { confirm: 'Are you sure?' }

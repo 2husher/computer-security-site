@@ -1,0 +1,19 @@
+= form_for [@category, @article] do |f|
+  - if @article.errors.any?
+    %h2 
+      = pluralize @article.errors.count, "error"
+      prohibited this product from being saved:
+  
+    %ul
+      - @article.errors.full_messages.each do |msg|
+        %li 
+          = msg
+  %p
+    = f.label :title
+    = f.text_field :title
+
+  %p
+    = f.label :content
+    = f.text_area :content
+
+  = f.submit

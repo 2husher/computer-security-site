@@ -1,0 +1,11 @@
+%p
+  %strong 
+    = @article.title
+
+%p 
+  = @article.content
+
+
+=link_to 'Delete', category_article_path(@category.id, @article.id), method: :delete, data: { confirm: 'Are you sure?' }
+=link_to 'Edit', edit_category_article_path(@category.id, @article.id)
+=link_to 'Category', category_path(@category.id)
