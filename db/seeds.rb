@@ -10,7 +10,7 @@ Category.delete_all
 
 category_1 = Category.create!(name: 'Классификация вирусов')
 
-category_1.articles.create!(title: 'ArchSMS', 
+article1 = category_1.articles.create!(title: 'ArchSMS', 
 	content: 
 	  %{<p>
 	      <b>ArchSMS (SMSSend, Pameseg) – поддельный SFX архив или установщик программ</b>. Требует отправки одного или нескольких СМС сообщений для продолжения «распаковки».
@@ -21,6 +21,10 @@ category_1.articles.create!(title: 'ArchSMS',
         <p>
           От платной «установки» можно отказаться.
         </p>})
+
+article1.comments.create!(author: 'alex111', content: 'я на такую штуку однажды нарвался, хрень еще та')
+
+article1.comments.create!(author: 'Доктор Ху', content: 'не надо быть таким наивным и поддаваться на уловки злоумышленников')
 
 category_1.articles.create!(title: 'Winlock', 
 	content:

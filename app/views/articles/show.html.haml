@@ -1,9 +1,51 @@
 %p
-  %strong 
+  %h3
     = @article.title
 
 %p 
   = raw(@article.content)
+
+
+%p
+  %h3 
+    Comments
+  - @article.comments.each do |c|
+    %p
+      comment by
+      = c.author
+      %br
+      %i
+        = c.content
+      %br
+      created at 
+      = c.created_at
+      %br
+      = link_to 'Delete', comment_path(c.id), method: :delete
+
+%p
+  %h3
+    New comment
+  = form_for [@article, @comment = @article.comments.build] do |f|
+    - if @comment.errors.any?
+      %h2 
+        = pluralize @comment.errors.count, "error"
+        prohibited this product from being saved:
+    
+      %ul
+        - @comment.errors.full_messages.each do |msg|
+          %li 
+            = msg
+
+    %p
+      =f.label :author
+      =f.text_field :author
+
+    %p
+      =f.label :content
+      =f.text_area :content
+
+    %p
+      =f.submit
 
 
 =link_to 'Delete', article_path(@article.id), method: :delete, data: { confirm: 'Are you sure?' }
