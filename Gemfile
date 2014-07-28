@@ -11,6 +11,8 @@ gem 'sass-rails', '~> 4.0.2'
 
 gem 'haml'
 
+gem 'annotate', ">=2.6.0"
+
 #gem 'footnotes'
 gem 'rails-footnotes', '>= 4.0.0', '<5'
 
