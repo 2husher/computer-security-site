@@ -3,7 +3,7 @@
     = @article.title
 
 %p 
-  = @article.content
+  = raw(@article.content)
 
 
 =link_to 'Delete', article_path(@article.id), method: :delete, data: { confirm: 'Are you sure?' }
