@@ -6,18 +6,6 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    = link_to 'Glossary', '#'
-    = link_to 'Searh', '#'
-    = link_to 'Random article', '#'
-    = link_to 'Profile', '#'
-    = link_to 'Registration', '#'
-
-    %table
-      - all_categories.each do |c|
-        %tr
-          %td 
-            =c.name
-          %td 
-            =link_to 'Show', category_path(c.id)
+    = render partial: 'shared/header'
   
     = yield

@@ -1,0 +1,18 @@
+= link_to 'Glossary', '#'
+= link_to 'Searh', '#'
+= link_to 'Random article', '#'
+= link_to 'Profile', '#'
+= link_to 'Registration', '#'
+
+= form_tag("/search/find", method: "get") do
+  = label_tag :q, "Поиск по статьям:"
+  = text_field_tag :q
+  = submit_tag "Search"
+
+%table
+  - all_categories.each do |c|
+    %tr
+      %td 
+        =c.name
+      %td 
+        =link_to 'Show', category_path(c.id)

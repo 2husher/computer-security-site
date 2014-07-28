@@ -1,0 +1,8 @@
+Found articles:
+%p
+  %strong
+    = @found_articles.title
+%p
+  = truncate(strip_tags(@found_articles.content), length: 200)
+
+= link_to 'Show article', article_path(@found_articles.id)

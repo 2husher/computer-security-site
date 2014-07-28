@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Category.delete_all
+Article.delete_all
 
 category_1 = Category.create!(name: 'Классификация вирусов')
 

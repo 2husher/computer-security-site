@@ -1,7 +1,7 @@
 Compsec::Application.routes.draw do
-
   root to: 'landpage#home'
   
+  get "search/find"
   get 'landpage/home' => 'landpage#home'
   get 'categories/index' => 'landpage#home'
 
