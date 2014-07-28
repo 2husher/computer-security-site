@@ -1,8 +1,10 @@
 Found articles:
 %p
-  %strong
-    = @found_articles.title
-%p
-  = truncate(strip_tags(@found_articles.content), length: 200)
-
-= link_to 'Show article', article_path(@found_articles.id)
+  - @found_articles.each do |fa|
+    %p
+      %strong
+        = fa.title
+    %p
+      = truncate(strip_tags(fa.content), length: 200)
+    %p
+      = link_to 'Show article', article_path(fa.id)
