@@ -5,6 +5,8 @@ Found articles:
       %strong
         = fa.title
     %p
+      = fa.created_at
+    %p
       = truncate(strip_tags(fa.content), length: 200)
     %p
       = link_to 'Show article', article_path(fa.id)

@@ -6,7 +6,7 @@
   = raw(@article.content)
 
 
-= render partial: 'comment_for_article', locals: { comments: @article.comments }
+= render partial: 'comment_for_article', locals: { comments: @article.comments.order('created_at desc') }
 
 = render partial: 'new_comment', locals: { article: @article, comment: @article.comments.build }
 
