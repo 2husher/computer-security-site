@@ -12,4 +12,5 @@
       created at 
       = c.created_at
       %br
-      = link_to 'Delete', comment_path(c.id), method: :delete
+      -if current_commentor? c.id
+        = link_to 'Delete', comment_path(c.id), method: :delete

@@ -1,6 +1,12 @@
 Compsec::Application.routes.draw do
   root to: 'landpage#home'
   
+  get "signup"  => "users#new"
+  
+  get 'signin'  => "sessions#new"
+  post 'signin' => "sessions#create"
+  delete 'signout' => "sessions#destroy"
+
   get "search/find"
   get 'landpage/home' => 'landpage#home'
   get 'categories/index' => 'landpage#home'
@@ -14,6 +20,8 @@ Compsec::Application.routes.draw do
   end
 
   resources :comments
+
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

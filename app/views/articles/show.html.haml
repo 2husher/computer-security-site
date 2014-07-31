@@ -8,9 +8,14 @@
 
 = render partial: 'comment_for_article', locals: { comments: @article.comments.order('created_at desc') }
 
-= render partial: 'new_comment', locals: { article: @article, comment: @article.comments.build }
+-if sign_in?
+  = render partial: 'new_comment', locals: { article: @article, comment: @article.comments.build }
+-else
+  = link_to "Login to comment", signin_path
+  %br
 
+-if admin?
+  =link_to 'Delete', article_path(@article.id), method: :delete, data: { confirm: 'Are you sure?' }
+  =link_to 'Edit', edit_article_path(@article.id)
 
-=link_to 'Delete', article_path(@article.id), method: :delete, data: { confirm: 'Are you sure?' }
-=link_to 'Edit', edit_article_path(@article.id)
 =link_to 'Category', category_path(@article.category.id)

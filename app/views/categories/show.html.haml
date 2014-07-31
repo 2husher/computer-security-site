@@ -3,8 +3,9 @@
 
 = render partial: 'articles_in_category', locals: { articles: @category.articles }
 
-%p
+  
+-if admin?
   = link_to 'New article', new_category_article_path(@category.id)
 
-= link_to 'Edit', edit_category_path(@category.id)
-= link_to 'Delete', category_path(@category.id), method: :delete, data: { confirm: 'Are you sure?' }
+  = link_to 'Edit', edit_category_path(@category.id)
+  = link_to 'Delete', category_path(@category.id), method: :delete, data: { confirm: 'Are you sure?' }

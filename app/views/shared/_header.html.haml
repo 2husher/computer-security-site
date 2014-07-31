@@ -1,7 +1,11 @@
 = link_to 'Home', root_path
 = link_to 'Glossary', '#'
-= link_to 'Profile', '#'
-= link_to 'Registration', '#'
+= link_to 'Registration', signup_path
+-if sign_in?
+  = link_to 'All users', users_path
+  = link_to 'Sign out', signout_path, method: :delete
+-else  
+  = link_to 'Profile', signin_path
 
 %p
   = form_tag("/search/find", method: "get") do

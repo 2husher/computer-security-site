@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+    skip_before_action :is_admin, only: :show
+
     def new
         @category = Category.new
     end

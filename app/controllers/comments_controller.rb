@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+	skip_before_action :is_admin
+	before_action :sign_in
+
 	def create
 		@article = Article.find(params[:article_id])
 		@comment = @article.comments.build(comment_params)

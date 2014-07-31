@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+    skip_before_action :is_admin, only: :show
+
     def new 
         @category = Category.find(params[:category_id])
         @article  = @category.articles.build
